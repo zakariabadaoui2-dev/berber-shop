@@ -303,64 +303,69 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Elite Cuts</div>
+            <div class="logo" data-en="Elite Cuts" data-ar="القطع الإليت" data-fr="Coupes d'Élite">Elite Cuts</div>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <ul id="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" data-en="Home" data-ar="الرئيسية" data-fr="Accueil">Home</a></li>
+                <li><a href="#services" data-en="Services" data-ar="الخدمات" data-fr="Services">Services</a></li>
+                <li><a href="#about" data-en="About" data-ar="حول" data-fr="À propos">About</a></li>
+                <li><a href="#gallery" data-en="Gallery" data-ar="المعرض" data-fr="Galerie">Gallery</a></li>
+                <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا" data-fr="Contact">Contact</a></li>
             </ul>
+            <select id="language-select" style="background: #2c3e50; color: white; border: none; padding: 5px;">
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+                <option value="fr">Français</option>
+            </select>
         </nav>
     </header>
 
     <section id="home" class="hero">
         <div>
-            <h1>Welcome to Elite Cuts</h1>
-            <p>Professional barber services for the modern gentleman</p>
+            <h1 data-en="Welcome to Elite Cuts" data-ar="مرحبا بكم في القطع الإليت" data-fr="Bienvenue chez Coupes d'Élite">Welcome to Elite Cuts</h1>
+            <p data-en="Professional barber services for the modern gentleman" data-ar="خدمات حلاقة احترافية للرجل الحديث" data-fr="Services de coiffure professionnels pour le gentleman moderne">Professional barber services for the modern gentleman</p>
             <div>
-                <a href="#contact" class="btn">Book Appointment</a>
-                <button class="btn" id="bookNowBtn" style="margin-left: 10px;">Book Now</button>
+                <a href="#contact" class="btn" data-en="Book Appointment" data-ar="احجز موعدا" data-fr="Réserver un rendez-vous">Book Appointment</a>
+                <button class="btn" id="bookNowBtn" style="margin-left: 10px;" data-en="Book Now" data-ar="احجز الآن" data-fr="Réserver maintenant">Book Now</button>
             </div>
         </div>
     </section>
 
     <section id="services" class="services">
-        <h2>Our Services</h2>
+        <h2 data-en="Our Services" data-ar="خدماتنا" data-fr="Nos Services">Our Services</h2>
         <div class="service-grid">
             <div class="service-card">
-                <h3>Haircut & Styling</h3>
-                <p>Classic and modern haircuts tailored to your style and face shape.</p>
+                <h3 data-en="Haircut & Styling" data-ar="قص الشعر وتصفيفه" data-fr="Coupe de cheveux et coiffage">Haircut & Styling</h3>
+                <p data-en="Classic and modern haircuts tailored to your style and face shape." data-ar="قصات شعر كلاسيكية وحديثة مصممة حسب أسلوبك وشكل وجهك." data-fr="Coupes de cheveux classiques et modernes adaptées à votre style et à la forme de votre visage.">Classic and modern haircuts tailored to your style and face shape.</p>
                 <p class="price">$25</p>
             </div>
             <div class="service-card">
-                <h3>Beard Grooming</h3>
-                <p>Professional beard trimming, shaping, and maintenance.</p>
+                <h3 data-en="Beard Grooming" data-ar="تهذيب اللحية" data-fr="Entretien de la barbe">Beard Grooming</h3>
+                <p data-en="Professional beard trimming, shaping, and maintenance." data-ar="تهذيب وتشكيل وصيانة اللحية المهنية." data-fr="Taille, mise en forme et entretien professionnel de la barbe.">Professional beard trimming, shaping, and maintenance.</p>
                 <p class="price">$20</p>
             </div>
             <div class="service-card">
-                <h3>Hot Towel Shave</h3>
-                <p>Traditional straight razor shave with hot towel treatment.</p>
+                <h3 data-en="Hot Towel Shave" data-ar="حلاقة بالمنشفة الساخنة" data-fr="Rasage à la serviette chaude">Hot Towel Shave</h3>
+                <p data-en="Traditional straight razor shave with hot towel treatment." data-ar="حلاقة تقليدية بالموس الحاد مع علاج المنشفة الساخنة." data-fr="Rasage traditionnel au rasoir droit avec traitement à la serviette chaude.">Traditional straight razor shave with hot towel treatment.</p>
                 <p class="price">$30</p>
             </div>
             <div class="service-card">
-                <h3>Hair & Beard Combo</h3>
-                <p>Complete grooming package including haircut and beard service.</p>
+                <h3 data-en="Hair & Beard Combo" data-ar="حزمة الشعر واللحية" data-fr="Combo Cheveux et Barbe">Hair & Beard Combo</h3>
+                <p data-en="Complete grooming package including haircut and beard service." data-ar="حزمة تهذيب كاملة تشمل قص الشعر وخدمة اللحية." data-fr="Forfait de toilettage complet incluant coupe de cheveux et service de barbe.">Complete grooming package including haircut and beard service.</p>
                 <p class="price">$40</p>
             </div>
             <div class="service-card">
-                <h3>Facial Treatment</h3>
-                <p>Deep cleansing facial with moisturizing treatment.</p>
+                <h3 data-en="Facial Treatment" data-ar="علاج الوجه" data-fr="Traitement facial">Facial Treatment</h3>
+                <p data-en="Deep cleansing facial with moisturizing treatment." data-ar="تنظيف عميق للوجه مع علاج الترطيب." data-fr="Nettoyage en profondeur du visage avec traitement hydratant.">Deep cleansing facial with moisturizing treatment.</p>
                 <p class="price">$35</p>
             </div>
             <div class="service-card">
-                <h3>Hair Coloring</h3>
-                <p>Professional hair coloring and highlighting services.</p>
+                <h3 data-en="Hair Coloring" data-ar="صبغ الشعر" data-fr="Coloration des cheveux">Hair Coloring</h3>
+                <p data-en="Professional hair coloring and highlighting services." data-ar="خدمات صبغ الشعر وإبرازه المهنية." data-fr="Services professionnels de coloration et de mèches des cheveux.">Professional hair coloring and highlighting services.</p>
                 <p class="price">$50</p>
             </div>
         </div>
@@ -370,16 +375,16 @@
         <div class="about">
             <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Barber shop interior">
             <div class="about-content">
-                <h2>About Elite Cuts</h2>
-                <p>Founded in 2010, Elite Cuts has been serving the community with professional barber services for over a decade. Our experienced barbers are committed to providing exceptional grooming experiences in a comfortable, welcoming environment.</p>
-                <p>We pride ourselves on using high-quality products, maintaining the highest standards of hygiene, and staying up-to-date with the latest trends and techniques in men's grooming.</p>
-                <a href="#contact" class="btn">Learn More</a>
+                <h2 data-en="About Elite Cuts" data-ar="حول القطع الإليت" data-fr="À propos de Coupes d'Élite">About Elite Cuts</h2>
+                <p data-en="Founded in 2010, Elite Cuts has been serving the community with professional barber services for over a decade. Our experienced barbers are committed to providing exceptional grooming experiences in a comfortable, welcoming environment." data-ar="تأسست في عام 2010، وقد كانت القطع الإليت تخدم المجتمع بخدمات حلاقة احترافية لأكثر من عقد. حلاقونا ذوي الخبرة ملتزمون بتقديم تجارب تهذيب استثنائية في بيئة مريحة ومرحبة." data-fr="Fondée en 2010, Coupes d'Élite sert la communauté avec des services de coiffure professionnels depuis plus d'une décennie. Nos coiffeurs expérimentés s'engagent à offrir des expériences de toilettage exceptionnelles dans un environnement confortable et accueillant.">Founded in 2010, Elite Cuts has been serving the community with professional barber services for over a decade. Our experienced barbers are committed to providing exceptional grooming experiences in a comfortable, welcoming environment.</p>
+                <p data-en="We pride ourselves on using high-quality products, maintaining the highest standards of hygiene, and staying up-to-date with the latest trends and techniques in men's grooming." data-ar="نفتخر باستخدام منتجات عالية الجودة، والحفاظ على أعلى معايير النظافة، ومواكبة أحدث الاتجاهات والتقنيات في تهذيب الرجال." data-fr="Nous sommes fiers d'utiliser des produits de haute qualité, de maintenir les normes d'hygiène les plus élevées et de rester à jour avec les dernières tendances et techniques en matière de toilettage masculin.">We pride ourselves on using high-quality products, maintaining the highest standards of hygiene, and staying up-to-date with the latest trends and techniques in men's grooming.</p>
+                <a href="#contact" class="btn" data-en="Learn More" data-ar="اعرف المزيد" data-fr="En savoir plus">Learn More</a>
             </div>
         </div>
     </section>
 
     <section id="gallery" class="gallery">
-        <h2>Our Work</h2>
+        <h2 data-en="Our Work" data-ar="أعمالنا" data-fr="Notre Travail">Our Work</h2>
         <div class="gallery-grid">
             <div class="gallery-item fade-in" style="background-image: url('https://images.unsplash.com/photo-1622296089863-9a4bf8d5c1c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');" data-src="https://images.unsplash.com/photo-1622296089863-9a4bf8d5c1c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"></div>
             <div class="gallery-item fade-in" style="background-image: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');" data-src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"></div>
@@ -391,33 +396,33 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2>Contact Us</h2>
+        <h2 data-en="Contact Us" data-ar="اتصل بنا" data-fr="Contactez-nous">Contact Us</h2>
         <div class="contact-form">
             <form id="contactForm">
                 <div class="form-group">
-                    <input type="text" id="name" placeholder="Your Name" required>
-                    <div class="error-message" id="nameError">Please enter your name</div>
+                    <input type="text" id="name" placeholder="Your Name" data-en="Your Name" data-ar="اسمك" data-fr="Votre nom" required>
+                    <div class="error-message" id="nameError" data-en="Please enter your name" data-ar="يرجى إدخال اسمك" data-fr="Veuillez entrer votre nom">Please enter your name</div>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="email" placeholder="Your Email" required>
-                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    <input type="email" id="email" placeholder="Your Email" data-en="Your Email" data-ar="بريدك الإلكتروني" data-fr="Votre email" required>
+                    <div class="error-message" id="emailError" data-en="Please enter a valid email address" data-ar="يرجى إدخال عنوان بريد إلكتروني صالح" data-fr="Veuillez entrer une adresse email valide">Please enter a valid email address</div>
                 </div>
                 <div class="form-group">
-                    <input type="tel" id="phone" placeholder="Your Phone">
-                    <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                    <input type="tel" id="phone" placeholder="Your Phone" data-en="Your Phone" data-ar="هاتفك" data-fr="Votre téléphone">
+                    <div class="error-message" id="phoneError" data-en="Please enter a valid phone number" data-ar="يرجى إدخال رقم هاتف صالح" data-fr="Veuillez entrer un numéro de téléphone valide">Please enter a valid phone number</div>
                 </div>
                 <div class="form-group">
-                    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-                    <div class="error-message" id="messageError">Please enter your message</div>
+                    <textarea id="message" rows="5" placeholder="Your Message" data-en="Your Message" data-ar="رسالتك" data-fr="Votre message" required></textarea>
+                    <div class="error-message" id="messageError" data-en="Please enter your message" data-ar="يرجى إدخال رسالتك" data-fr="Veuillez entrer votre message">Please enter your message</div>
                 </div>
-                <button type="submit" class="btn">Send Message</button>
+                <button type="submit" class="btn" data-en="Send Message" data-ar="إرسال الرسالة" data-fr="Envoyer le message">Send Message</button>
             </form>
         </div>
         <div style="text-align: center; margin-top: 3rem;">
-            <p><strong>Address:</strong> hay chmaoou, rue de mehdia, salé , morocco</p>
-            <p><strong>Phone:</strong> +212600000000</p>
-            <p><strong>Email:</strong> Elit-cute@gamail.com</p>
-            <p><strong>Hours:</strong> Mon-Fri: 9AM-7PM, Sat: 8AM-5PM, Sun: Closed</p>
+            <p><strong data-en="Address:" data-ar="العنوان:" data-fr="Adresse:">Address:</strong> hay chmaoou, rue de mehdia, salé , morocco</p>
+            <p><strong data-en="Phone:" data-ar="الهاتف:" data-fr="Téléphone:">Phone:</strong> +212600000000</p>
+            <p><strong data-en="Email:" data-ar="البريد الإلكتروني:" data-fr="Email:">Email:</strong> Elit-cute@gamail.com</p>
+            <p><strong data-en="Hours:" data-ar="ساعات العمل:" data-fr="Heures:">Hours:</strong> <span data-en="Mon-Fri: 9AM-7PM, Sat: 8AM-5PM, Sun: Closed" data-ar="الاثنين-الجمعة: 9ص-7م, السبت: 8ص-5م, الأحد: مغلق" data-fr="Lun-Ven: 9h-19h, Sam: 8h-17h, Dim: Fermé">Mon-Fri: 9AM-7PM, Sat: 8AM-5PM, Sun: Closed</span></p>
         </div>
     </section>
 
@@ -426,38 +431,38 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close" id="closeModal">&times;</span>
-                <h2>Book Your Appointment</h2>
+                <h2 data-en="Book Your Appointment" data-ar="احجز موعدك" data-fr="Réservez votre rendez-vous">Book Your Appointment</h2>
             </div>
             <div class="modal-body">
                 <form id="bookingForm">
                     <div class="form-group">
-                        <input type="text" id="bookingName" placeholder="Your Name" required>
-                        <div class="error-message" id="bookingNameError">Please enter your name</div>
+                        <input type="text" id="bookingName" placeholder="Your Name" data-en="Your Name" data-ar="اسمك" data-fr="Votre nom" required>
+                        <div class="error-message" id="bookingNameError" data-en="Please enter your name" data-ar="يرجى إدخال اسمك" data-fr="Veuillez entrer votre nom">Please enter your name</div>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="bookingEmail" placeholder="Your Email" required>
-                        <div class="error-message" id="bookingEmailError">Please enter a valid email address</div>
+                        <input type="email" id="bookingEmail" placeholder="Your Email" data-en="Your Email" data-ar="بريدك الإلكتروني" data-fr="Votre email" required>
+                        <div class="error-message" id="bookingEmailError" data-en="Please enter a valid email address" data-ar="يرجى إدخال عنوان بريد إلكتروني صالح" data-fr="Veuillez entrer une adresse email valide">Please enter a valid email address</div>
                     </div>
                     <div class="form-group">
-                        <input type="tel" id="bookingPhone" placeholder="Your Phone" required>
-                        <div class="error-message" id="bookingPhoneError">Please enter a valid phone number</div>
+                        <input type="tel" id="bookingPhone" placeholder="Your Phone" data-en="Your Phone" data-ar="هاتفك" data-fr="Votre téléphone" required>
+                        <div class="error-message" id="bookingPhoneError" data-en="Please enter a valid phone number" data-ar="يرجى إدخال رقم هاتف صالح" data-fr="Veuillez entrer un numéro de téléphone valide">Please enter a valid phone number</div>
                     </div>
                     <div class="form-group">
                         <select id="service" required>
-                            <option value="">Select Service</option>
-                            <option value="haircut">Haircut & Styling - $25</option>
-                            <option value="beard">Beard Grooming - $20</option>
-                            <option value="shave">Hot Towel Shave - $30</option>
-                            <option value="combo">Hair & Beard Combo - $40</option>
-                            <option value="facial">Facial Treatment - $35</option>
-                            <option value="coloring">Hair Coloring - $50</option>
+                            <option value="" data-en="Select Service" data-ar="اختر الخدمة" data-fr="Sélectionner un service">Select Service</option>
+                            <option value="haircut" data-en="Haircut & Styling - $25" data-ar="قص الشعر وتصفيفه - 25 دولار" data-fr="Coupe de cheveux et coiffage - 25$">Haircut & Styling - $25</option>
+                            <option value="beard" data-en="Beard Grooming - $20" data-ar="تهذيب اللحية - 20 دولار" data-fr="Entretien de la barbe - 20$">Beard Grooming - $20</option>
+                            <option value="shave" data-en="Hot Towel Shave - $30" data-ar="حلاقة بالمنشفة الساخنة - 30 دولار" data-fr="Rasage à la serviette chaude - 30$">Hot Towel Shave - $30</option>
+                            <option value="combo" data-en="Hair & Beard Combo - $40" data-ar="حزمة الشعر واللحية - 40 دولار" data-fr="Combo Cheveux et Barbe - 40$">Hair & Beard Combo - $40</option>
+                            <option value="facial" data-en="Facial Treatment - $35" data-ar="علاج الوجه - 35 دولار" data-fr="Traitement facial - 35$">Facial Treatment - $35</option>
+                            <option value="coloring" data-en="Hair Coloring - $50" data-ar="صبغ الشعر - 50 دولار" data-fr="Coloration des cheveux - 50$">Hair Coloring - $50</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <input type="datetime-local" id="appointmentDate" required>
-                        <div class="error-message" id="dateError">Please select a date and time</div>
+                        <div class="error-message" id="dateError" data-en="Please select a date and time" data-ar="يرجى تحديد التاريخ والوقت" data-fr="Veuillez sélectionner une date et une heure">Please select a date and time</div>
                     </div>
-                    <button type="submit" class="btn">Book Appointment</button>
+                    <button type="submit" class="btn" data-en="Book Appointment" data-ar="احجز موعدا" data-fr="Réserver un rendez-vous">Book Appointment</button>
                 </form>
             </div>
         </div>
@@ -470,7 +475,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Elite Cuts Barber Shop. All rights reserved.</p>
+        <p data-en="&copy; 2026 Elite Cuts Barber Shop. All rights reserved." data-ar="&copy; 2026 متجر الحلاقة القطع الإليت. جميع الحقوق محفوظة." data-fr="&copy; 2026 Salon de coiffure Coupes d'Élite. Tous droits réservés.">&copy; 2026 Elite Cuts Barber Shop. All rights reserved.</p>
     </footer>
 
     <script>
@@ -485,6 +490,7 @@
             initGalleryLightbox();
             initScrollAnimations();
             initAppointmentBooking();
+            initLanguageSwitch();
         });
 
         // Smooth Scrolling for Navigation Links
@@ -924,6 +930,33 @@
 
         // Initialize scroll to top button
         addScrollToTopButton();
+
+        // Language Switch
+        function initLanguageSwitch() {
+            const languageSelect = document.getElementById('language-select');
+            languageSelect.addEventListener('change', function() {
+                switchLanguage(this.value);
+            });
+        }
+
+        function switchLanguage(lang) {
+            const html = document.documentElement;
+            html.lang = lang;
+            html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // Update all elements with data-lang
+            const elements = document.querySelectorAll('[data-' + lang + ']');
+            elements.forEach(element => {
+                const text = element.getAttribute('data-' + lang);
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = text;
+                } else if (element.tagName === 'OPTION') {
+                    element.textContent = text;
+                } else {
+                    element.textContent = text;
+                }
+            });
+        }
     </script>
 </body>
 </html>
