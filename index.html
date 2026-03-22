@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Cuts Barber Shop - Professional Haircuts & Grooming</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            background: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #c0392b;
+        }
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .services {
+            background: #f8f9fa;
+        }
+        .services h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        .about img {
+            width: 50%;
+            border-radius: 10px;
+        }
+        .about-content {
+            flex: 1;
+        }
+        .gallery {
+            background: #2c3e50;
+            color: white;
+        }
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .gallery-item {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+        }
+        .contact {
+            background: #f8f9fa;
+        }
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        @media (max-width: 768px) {
+            .about {
+                flex-direction: column;
+            }
+            .about img {
+                width: 100%;
+            }
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #2c3e50;
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 0;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+        .modal-header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+        }
+        .modal-body {
+            padding: 20px;
+        }
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #3498db;
+        }
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Form Validation Styles */
+        .error {
+            border-color: #e74c3c;
+            background-color: #fdf2f2;
+        }
+        .success {
+            border-color: #27ae60;
+            background-color: #d5f4e6;
+        }
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Elite Cuts</div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div>
+            <h1>Welcome to Elite Cuts</h1>
+            <p>Professional barber services for the modern gentleman</p>
+            <div>
+                <a href="#contact" class="btn">Book Appointment</a>
+                <button class="btn" id="bookNowBtn" style="margin-left: 10px;">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Haircut & Styling</h3>
+                <p>Classic and modern haircuts tailored to your style and face shape.</p>
+                <p class="price">$25</p>
+            </div>
+            <div class="service-card">
+                <h3>Beard Grooming</h3>
+                <p>Professional beard trimming, shaping, and maintenance.</p>
+                <p class="price">$20</p>
+            </div>
+            <div class="service-card">
+                <h3>Hot Towel Shave</h3>
+                <p>Traditional straight razor shave with hot towel treatment.</p>
+                <p class="price">$30</p>
+            </div>
+            <div class="service-card">
+                <h3>Hair & Beard Combo</h3>
+                <p>Complete grooming package including haircut and beard service.</p>
+                <p class="price">$40</p>
+            </div>
+            <div class="service-card">
+                <h3>Facial Treatment</h3>
+                <p>Deep cleansing facial with moisturizing treatment.</p>
+                <p class="price">$35</p>
+            </div>
+            <div class="service-card">
+                <h3>Hair Coloring</h3>
+                <p>Professional hair coloring and highlighting services.</p>
+                <p class="price">$50</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about">
+            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Barber shop interior">
+            <div class="about-content">
+                <h2>About Elite Cuts</h2>
+                <p>Founded in 2010, Elite Cuts has been serving the community with professional barber services for over a decade. Our experienced barbers are committed to providing exceptional grooming experiences in a comfortable, welcoming environment.</p>
+                <p>We pride ourselves on using high-quality products, maintaining the highest standards of hygiene, and staying up-to-date with the latest trends and techniques in men's grooming.</p>
+                <a href="#contact" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Our Work</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item fade-in" style="background-image: url('https://images.unsplash.com/photo-1622296089863-9a4bf8d5c1c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');" data-src="https://images.unsplash.com/photo-1622296089863-9a4bf8d5c1c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"></div>
+            <div class="gallery-item fade-in" style="background-image: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');" data-src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"></div>
+            <div class="gallery-item fade-in" style="background-image: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');" data-src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"></div>
+            <div class="gallery-item fade-in" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');" data-src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"></div>
+            <div class="gallery-item fade-in" style="background-image: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');" data-src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"></div>
+            <div class="gallery-item fade-in" style="background-image: url('https://images.unsplash.com/photo-1622296089863-9a4bf8d5c1c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');" data-src="https://images.unsplash.com/photo-1622296089863-9a4bf8d5c1c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <div class="error-message" id="nameError">Please enter your name</div>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="Your Phone">
+                    <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    <div class="error-message" id="messageError">Please enter your message</div>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <p><strong>Address:</strong> hay chmaoou, rue de mehdia, salé , morocco</p>
+            <p><strong>Phone:</strong> +212600000000</p>
+            <p><strong>Email:</strong> Elit-cute@gamail.com</p>
+            <p><strong>Hours:</strong> Mon-Fri: 9AM-7PM, Sat: 8AM-5PM, Sun: Closed</p>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" id="closeModal">&times;</span>
+                <h2>Book Your Appointment</h2>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <input type="text" id="bookingName" placeholder="Your Name" required>
+                        <div class="error-message" id="bookingNameError">Please enter your name</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="bookingEmail" placeholder="Your Email" required>
+                        <div class="error-message" id="bookingEmailError">Please enter a valid email address</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="bookingPhone" placeholder="Your Phone" required>
+                        <div class="error-message" id="bookingPhoneError">Please enter a valid phone number</div>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" required>
+                            <option value="">Select Service</option>
+                            <option value="haircut">Haircut & Styling - $25</option>
+                            <option value="beard">Beard Grooming - $20</option>
+                            <option value="shave">Hot Towel Shave - $30</option>
+                            <option value="combo">Hair & Beard Combo - $40</option>
+                            <option value="facial">Facial Treatment - $35</option>
+                            <option value="coloring">Hair Coloring - $50</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="datetime-local" id="appointmentDate" required>
+                        <div class="error-message" id="dateError">Please select a date and time</div>
+                    </div>
+                    <button type="submit" class="btn">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" id="closeLightbox">&times;</span>
+        <img id="lightboxImg" src="" alt="Gallery Image">
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Elite Cuts Barber Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Professional JavaScript for Barber Shop Website
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all features
+            initSmoothScrolling();
+            initMobileMenu();
+            initFormValidation();
+            initBookingModal();
+            initGalleryLightbox();
+            initScrollAnimations();
+            initAppointmentBooking();
+        });
+
+        // Smooth Scrolling for Navigation Links
+        function initSmoothScrolling() {
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetSection.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const navMenu = document.getElementById('nav-menu');
+                        const hamburger = document.getElementById('hamburger');
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            hamburger.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        }
+
+        // Mobile Menu Toggle
+        function initMobileMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+                
+                // Animate hamburger
+                const spans = hamburger.querySelectorAll('span');
+                if (hamburger.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        }
+
+        // Form Validation
+        function initFormValidation() {
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (validateContactForm()) {
+                    // Simulate form submission
+                    alert('Thank you for your message! We will get back to you soon.');
+                    contactForm.reset();
+                    clearFormErrors();
+                }
+            });
+            
+            // Real-time validation
+            const inputs = contactForm.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    validateField(this);
+                });
+                
+                input.addEventListener('input', function() {
+                    clearFieldError(this);
+                });
+            });
+        }
+
+        function validateContactForm() {
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const message = document.getElementById('message');
+            
+            let isValid = true;
+            
+            if (!validateField(name)) isValid = false;
+            if (!validateField(email)) isValid = false;
+            if (!validateField(phone)) isValid = false;
+            if (!validateField(message)) isValid = false;
+            
+            return isValid;
+        }
+
+        function validateField(field) {
+            const value = field.value.trim();
+            const fieldName = field.id;
+            const errorElement = document.getElementById(fieldName + 'Error');
+            
+            let isValid = true;
+            let errorMessage = '';
+            
+            switch(fieldName) {
+                case 'name':
+                    if (value.length < 2) {
+                        isValid = false;
+                        errorMessage = 'Name must be at least 2 characters long';
+                    }
+                    break;
+                case 'email':
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(value)) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid email address';
+                    }
+                    break;
+                case 'phone':
+                    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                    if (value && !phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''))) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid phone number';
+                    }
+                    break;
+                case 'message':
+                    if (value.length < 10) {
+                        isValid = false;
+                        errorMessage = 'Message must be at least 10 characters long';
+                    }
+                    break;
+            }
+            
+            if (!isValid) {
+                field.classList.add('error');
+                field.classList.remove('success');
+                errorElement.textContent = errorMessage;
+                errorElement.style.display = 'block';
+            } else {
+                field.classList.remove('error');
+                field.classList.add('success');
+                errorElement.style.display = 'none';
+            }
+            
+            return isValid;
+        }
+
+        function clearFieldError(field) {
+            const fieldName = field.id;
+            const errorElement = document.getElementById(fieldName + 'Error');
+            
+            if (field.classList.contains('error')) {
+                field.classList.remove('error');
+                errorElement.style.display = 'none';
+            }
+        }
+
+        function clearFormErrors() {
+            const inputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
+            inputs.forEach(input => {
+                input.classList.remove('error', 'success');
+                const errorElement = document.getElementById(input.id + 'Error');
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            });
+        }
+
+        // Booking Modal
+        function initBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            const btn = document.getElementById('bookNowBtn');
+            const closeBtn = document.getElementById('closeModal');
+            
+            btn.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Gallery Lightbox
+        function initGalleryLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const closeBtn = document.getElementById('closeLightbox');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const imgSrc = this.getAttribute('data-src');
+                    lightboxImg.src = imgSrc;
+                    lightbox.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            closeBtn.addEventListener('click', function() {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Scroll Animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Appointment Booking
+        function initAppointmentBooking() {
+            const bookingForm = document.getElementById('bookingForm');
+            
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (validateBookingForm()) {
+                    // Simulate booking submission
+                    const formData = {
+                        name: document.getElementById('bookingName').value,
+                        email: document.getElementById('bookingEmail').value,
+                        phone: document.getElementById('bookingPhone').value,
+                        service: document.getElementById('service').value,
+                        date: document.getElementById('appointmentDate').value
+                    };
+                    
+                    console.log('Booking submitted:', formData);
+                    alert('Appointment booked successfully! We will send you a confirmation email.');
+                    
+                    bookingForm.reset();
+                    document.getElementById('bookingModal').style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    clearBookingFormErrors();
+                }
+            });
+            
+            // Real-time validation for booking form
+            const bookingInputs = bookingForm.querySelectorAll('input, select');
+            bookingInputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    validateBookingField(this);
+                });
+                
+                input.addEventListener('input', function() {
+                    clearBookingFieldError(this);
+                });
+            });
+        }
+
+        function validateBookingForm() {
+            const fields = ['bookingName', 'bookingEmail', 'bookingPhone', 'service', 'appointmentDate'];
+            let isValid = true;
+            
+            fields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!validateBookingField(field)) {
+                    isValid = false;
+                }
+            });
+            
+            return isValid;
+        }
+
+        function validateBookingField(field) {
+            const value = field.value.trim();
+            const fieldName = field.id;
+            const errorElement = document.getElementById(fieldName.replace('booking', '').toLowerCase() + 'Error');
+            
+            let isValid = true;
+            let errorMessage = '';
+            
+            switch(fieldName) {
+                case 'bookingName':
+                    if (value.length < 2) {
+                        isValid = false;
+                        errorMessage = 'Name must be at least 2 characters long';
+                    }
+                    break;
+                case 'bookingEmail':
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(value)) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid email address';
+                    }
+                    break;
+                case 'bookingPhone':
+                    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                    if (!phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''))) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid phone number';
+                    }
+                    break;
+                case 'service':
+                    if (!value) {
+                        isValid = false;
+                        errorMessage = 'Please select a service';
+                    }
+                    break;
+                case 'appointmentDate':
+                    if (!value) {
+                        isValid = false;
+                        errorMessage = 'Please select a date and time';
+                    } else {
+                        const selectedDate = new Date(value);
+                        const now = new Date();
+                        if (selectedDate <= now) {
+                            isValid = false;
+                            errorMessage = 'Please select a future date and time';
+                        }
+                    }
+                    break;
+            }
+            
+            if (!isValid) {
+                field.classList.add('error');
+                field.classList.remove('success');
+                errorElement.textContent = errorMessage;
+                errorElement.style.display = 'block';
+            } else {
+                field.classList.remove('error');
+                field.classList.add('success');
+                errorElement.style.display = 'none';
+            }
+            
+            return isValid;
+        }
+
+        function clearBookingFieldError(field) {
+            const fieldName = field.id;
+            const errorElement = document.getElementById(fieldName.replace('booking', '').toLowerCase() + 'Error');
+            
+            if (field.classList.contains('error')) {
+                field.classList.remove('error');
+                errorElement.style.display = 'none';
+            }
+        }
+
+        function clearBookingFormErrors() {
+            const inputs = document.querySelectorAll('#bookingForm input, #bookingForm select');
+            inputs.forEach(input => {
+                input.classList.remove('error', 'success');
+                const errorElement = document.getElementById(input.id.replace('booking', '').toLowerCase() + 'Error');
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            });
+        }
+
+        // Utility function for smooth scrolling to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add scroll to top button (optional enhancement)
+        function addScrollToTopButton() {
+            const button = document.createElement('button');
+            button.innerHTML = '↑';
+            button.id = 'scrollToTopBtn';
+            button.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #e74c3c;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.3s;
+                z-index: 100;
+            `;
+            
+            document.body.appendChild(button);
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    button.style.opacity = '1';
+                } else {
+                    button.style.opacity = '0';
+                }
+            });
+            
+            button.addEventListener('click', scrollToTop);
+        }
+
+        // Initialize scroll to top button
+        addScrollToTopButton();
+    </script>
+</body>
+</html>
